@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Exercice require</title>
+        <link rel="stylesheet" href="assets/style.css" />
+    </head>
+    <body>
+        <?php require 'header.phtml'; ?>
+        
+        <div class="content">
+            <?php
+                $route = isset($_GET["route"]) && !empty($_GET["route"]) ? $_GET["route"] : null;
+
+                switch ($route) {
+                    case 'about':
+                        require 'about.phtml';
+                        break;
+                    case 'contact':
+                        require 'contact.phtml';
+                        break;
+                    default:
+                        require 'home.phtml';
+                        break;
+                }
+            ?>
+        </div>
+
+        <?php require 'footer.phtml'; ?>
+    </body>
+</html>
